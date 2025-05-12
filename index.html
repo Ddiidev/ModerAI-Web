@@ -6,32 +6,57 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ModerAÍ - Moderação de Texto Inteligente para o Brasil</title>
     <link rel="icon" type="image/x-icon" href="images/favicon.ico">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=LXGW+WenKai+Mono+TC&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Ruda:wght@400..900&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Vue.js -->
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <style>
+        .ruda {
+            font-family: "Ruda", sans-serif;
+            font-optical-sizing: auto;
+        }
+
+        .share-tech {
+            font-family: 'Share Tech Mono', monospace;
+            font-style: normal;
+        }
+
+        body {
+            font-family: 'Ruda', monospace;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        b {
+            font-family: 'Share Tech Mono', monospace;
+        }
+    </style>
 </head>
 
-<body class="font-roboto bg-gray-50 text-gray-900">
+<body class="bg-gray-50 text-gray-900">
     <div id="app">
         <header class="border-b bg-white/80 backdrop-blur sticky top-0 z-30">
             <div class="max-w-6xl mx-auto flex items-center justify-between py-4 px-4">
                 <div class="flex items-center gap-2">
-                    <img src="images/logo-only-dog.jpg" alt="ModerAÍ Logo" class="h-10 w-10 rounded-full">
+                    <img src="images/logo-only-dog.jpg" class="h-10 w-10 rounded-full">
                     <h1 class="text-xl font-bold tracking-tight">ModerAÍ</h1>
                 </div>
-                <button class="md:hidden px-4 py-2 rounded bg-green-600 text-white" v-on:click="toggleMenu">
-                    <span>{{ mobileMenuOpen ? 'Fechar' : 'Menu' }}</span>
-                </button>
-                <nav :class="{'block': mobileMenuOpen, 'hidden': !mobileMenuOpen}" class="hidden md:block">
-                    <ul class="flex flex-col md:flex-row gap-4 md:gap-8">
+                <nav :class="{'block': mobileMenuOpen, 'hidden': !mobileMenuOpen}" class="hidden md:flex items-center">
+                    <ul class="flex flex-col md:flex-row items-center gap-4 md:gap-8">
                         <li><a href="#problema" class="hover:text-green-600 transition-colors">O Problema</a></li>
                         <li><a href="#solucao" class="hover:text-green-600 transition-colors">Nossa Solução</a></li>
                         <li><a href="#diferenciais" class="hover:text-green-600 transition-colors">Diferenciais</a></li>
                         <li><a href="#planos-precos" class="hover:text-green-600 transition-colors">Planos</a></li>
-                        <li><a href="#contato"
-                                class="gradient-border"><span class="btn">Fale
-                                Conosco</span></a></li>
+                        <li><a href="#contato" class="gradient-border flex items-center"><span class="btn">Fale
+                                    Conosco</span></a></li>
                     </ul>
                 </nav>
             </div>
@@ -111,11 +136,12 @@
                 <h2 class="text-2xl md:text-3xl font-bold mb-10 text-center">Nossos Diferenciais</h2>
                 <div class="flex flex-col md:flex-row justify-center gap-8 mb-12">
                     <div class="flex-1 flex flex-col items-center">
-                        <div class="text-5xl font-bold text-primary-600">{{ stats.textos }}</div>
+                        <b class="text-5xl font-bold text-primary-600">{{ stats.textos }}</b>
                         <div class="text-gray-600">Textos Analisados</div>
                     </div>
                     <div class="flex-1 flex flex-col items-center">
-                        <div class="text-5xl font-bold text-primary-600">{{ stats.precisao }}%</div>
+                        <b id="precisao-animada" class="text-5xl font-bold text-primary-600">{{ stats.precisao }}%
+                        </b>
                         <div class="text-gray-600">Precisão</div>
                     </div>
                 </div>
@@ -177,9 +203,9 @@
                     class="bg-gradient-to-r from-green-100 to-yellow-100 border-2 border-green-500 rounded-lg p-4 mb-10 max-w-3xl mx-auto">
                     <div class="flex items-center justify-center gap-3">
                         <div class="text-3xl">🎁</div>
-                        <p class="text-lg font-medium text-green-800">Ganhe <span class="font-bold">R$ 5,11 de
-                                crédito</span> ao se cadastrar! <span class="text-gray-700">(equivalente a 11 mil
-                                palavras)</span></p>
+                        <p class="text-lg font-medium text-green-800">Ganhe <span class="font-bold">R$ 5 de
+                                crédito</span> ao se cadastrar! <span class="text-gray-700">(equivale a 11 mil palavras,
+                                estimado a 1.375 mensagens do WhatsApp ou 1 hora de leitura)</span></p>
                     </div>
                 </div>
                 <p class="text-center text-lg mb-16">Escolha o plano que combina com seu produto</p>
@@ -187,8 +213,8 @@
                     <div class="bg-white rounded-xl shadow p-8 flex flex-col items-center text-center gap-4">
                         <div class="text-4xl mb-2">🌱</div>
                         <h3 class="font-semibold text-lg">Inicial</h3>
-                        <div class="text-3xl font-bold text-primary-600">R$ 34,90<span
-                                class="text-base font-normal">/mês</span></div>
+                        <div class="text-3xl font-bold share-tech text-primary-600">R$ 34,90<span
+                                class="text-base share-tech">/mês</span></div>
                         <p class="text-gray-600 italic">Para quem quer começar com moderação de qualidade! Longe de
                             qualquer toxicidade.</p>
                         <ul class="space-y-2 text-gray-600 text-left w-full">
@@ -201,8 +227,7 @@
                             <li class="flex items-center gap-2"><span class="text-green-500">✔️</span>Ideal para bots,
                                 MVPs ou micro-SaaS</li>
                         </ul>
-                        <p class="text-gray-500 text-sm">Modere até 150 mil comentários/mês</p>
-                        <p class="text-gray-500 text-sm mb-2">A partir de R$ 0,000046 por palavra</p>
+                        <p class="text-gray-500 text-sm">Modere até <b>93,7 mil</b> msg do WhatsApp/mês</p>
                         <div class="mt-2 mb-3">
                             <button @click="toggleExcedentesInicial = !toggleExcedentesInicial"
                                 class="text-green-600 text-sm flex items-center gap-1 hover:underline">
@@ -211,16 +236,15 @@
                             </button>
                             <div v-if="toggleExcedentesInicial"
                                 class="mt-2 p-3 bg-green-50 rounded-md text-sm text-gray-700 text-left">
-                                <p><strong>Custo por palavra excedente:</strong> R$ 0,000465</p>
-                                <p class="mt-1"><em>Exemplo:</em> 10 mil palavras extras custam apenas R$ 4,65</p>
+                                <p>Custo por palavra que excede o plano: <b>R$ 0,000465</b></p>
+                                <p class="mt-1"><em>Exemplo:</em> <b>10 mil</b> palavras extras custam apenas <b>R$ 4,65</b></p>
                             </div>
                         </div>
                         <div class="flex gap-3 w-full">
                             <a href="#"
                                 class="flex-1 bg-gray-100 text-gray-800 px-4 py-3 rounded shadow-md hover:bg-gray-200 transition-all duration-300 font-semibold">Testar
                                 grátis</a>
-                            <a href="#"
-                                class="gradient-border"><span class="btn">Assinar</span></a>
+                            <a href="#" class="gradient-border"><span class="btn">Assinar</span></a>
                         </div>
                         <p class="text-green-600 font-medium mt-2">➡️ Comece simples, sem complicação</p>
                     </div>
@@ -233,7 +257,7 @@
                                 Mais Popular</div>
                             <div class="text-4xl mb-2">🚀</div>
                             <h3 class="font-semibold text-xl mt-3">Pro</h3>
-                            <div class="text-4xl font-bold">R$ 164,90<span class="text-base font-normal">/mês</span>
+                            <div class="text-4xl font-bold share-tech">R$ 164,90<span class="text-base">/mês</span>
                             </div>
                             <p class="text-gray-600 italic">Para quem já tem tração e não pode correr risco de
                                 informações
@@ -250,18 +274,17 @@
                                     SaaS
                                     em crescimento e marketplaces</li>
                             </ul>
-                            <p class="text-gray-500 text-sm">Modere até 1 milhão de comentários/mês</p>
-                            <p class="text-gray-500 text-sm mb-2">A partir de R$ 0,000033 por palavra</p>
+                            <p class="text-gray-500 text-sm">Modere até <b>647 mil</b> msg do WhatsApp/mês</b>
                             <div class="mt-2 mb-3">
-                                <button @click="toggleExcedentesPro = !toggleExcedentesPro"
+                                <button @click="toggleExcedentesInicial = !toggleExcedentesInicial"
                                     class="text-green-600 text-sm flex items-center gap-1 hover:underline">
-                                    <span v-if="!toggleExcedentesPro">➕ Ver custo de palavras excedentes</span>
+                                    <span v-if="!toggleExcedentesInicial">➕ Ver custo de palavras excedentes</span>
                                     <span v-else>➖ Ocultar custo de palavras excedentes</span>
                                 </button>
-                                <div v-if="toggleExcedentesPro"
+                                <div v-if="toggleExcedentesInicial"
                                     class="mt-2 p-3 bg-green-50 rounded-md text-sm text-gray-700 text-left">
-                                    <p><strong>Custo por palavra excedente:</strong> R$ 0,000330</p>
-                                    <p class="mt-1"><em>Exemplo:</em> 10 mil palavras extras custam apenas R$ 3,30</p>
+                                    <p>Custo por palavra que excede o plano: <b>R$ 0,000330</b></p>
+                                    <p class="mt-1"><em>Exemplo:</em> <b>10 mil</b> palavras extras custam apenas <b>R$ 3,30</b></p>
                                 </div>
                             </div>
                             <a href="#"
@@ -284,17 +307,44 @@
                             <li class="flex items-center gap-2"><span class="text-green-500">✔️</span>Suporte
                                 prioritário na implantação do serviço ao seu negócio</li>
                         </ul>
-                        <p class="text-gray-500 text-sm mb-2">Custo por palavra excedente: R$ 0,000200</p>
+                        <p class="text-gray-500 text-sm mb-2">Custo por palavra excedente: <b>R$ 0,000200</b></p>
                         <div class="flex-grow"></div>
-                        <a href="#contato"
-                            class="gradient-border"><span class="btn">Fale Conosco</span></a>
+                        <a href="#contato" class="gradient-border"><span class="btn">Fale Conosco</span></a>
                         <p class="text-green-600 font-medium mt-2">➡️ Criamos juntos o plano ideal</p>
                     </div>
                 </div>
-                <p class="mt-16 text-center text-gray-700">Modelo de precificação: <strong>baseado em palavras
+
+                <div class="overflow-x-auto mb-10 mt-16">
+                    <table class="min-w-full bg-white rounded-xl shadow text-gray-800">
+                        <caption class="text-sm text-gray-500 mb-2 mt-1">Valores aproximados. Estimativas para WhatsApp
+                            (8 palavras/mensagem, 180 palavras/minuto de leitura).</caption>
+                        <thead>
+                            <tr>
+                                <th class="px-4 py-3 border-b text-left">Total de Palavras</th>
+                                <th class="px-4 py-3 border-b text-left">Mensagens WhatsApp</th>
+                                <th class="px-4 py-3 border-b text-left">Tempo de Leitura (em horas e dias)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="hover:bg-green-50">
+                                <td class="px-4 py-2 border-b">750.000</td>
+                                <td class="px-4 py-2 border-b">~93.750 mensagens</td>
+                                <td class="px-4 py-2 border-b">~83,4 horas (3 dias sem parar pra respirar 👃🏻)</td>
+                            </tr>
+                            <tr class="hover:bg-green-50">
+                                <td class="px-4 py-2">5.000.000</td>
+                                <td class="px-4 py-2">~647.000 mensagens</td>
+                                <td class="px-4 py-2">~731,3 horas (30 dias piscando um olho 👁️ de cada vez )</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <p class="mt-8 text-center text-gray-700">Modelo de precificação: <strong>baseado em palavras
                         processadas</strong>. Escolha o plano conforme o volume de textos que deseja moderar. Para
                     volumes
                     maiores ou necessidades específicas, entre em contato para uma proposta personalizada.</p>
+
             </div>
         </section>
         <footer class="bg-gray-900 text-gray-100 py-10 mt-16">
@@ -339,45 +389,43 @@
 
                 // Toggle state para informações de excedentes
                 const toggleExcedentesInicial = ref(false);
-                const toggleExcedentesPro = ref(false);
 
                 const targetStats = {
-                    textos: 1500000, // Exemplo: 1.5 Milhão
-                    precisao: 99.97 // Exemplo: 98%
+                    textos: 1500000,
+                    precisao: 99.97
                 };
 
-                const animateValue = (obj, key, start, end, duration) => {
+                function animateValue(stats, key, start, end, duration) {
                     let startTimestamp = null;
                     const step = (timestamp) => {
                         if (!startTimestamp) startTimestamp = timestamp;
                         const progress = Math.min((timestamp - startTimestamp) / duration, 1);
-                        obj.value[key] = Math.floor(progress * (end - start) + start);
+                        stats.value[key] = +(start + (end - start) * progress).toFixed(2);
                         if (progress < 1) {
                             window.requestAnimationFrame(step);
+                        } else {
+                            stats.value[key] = +end.toFixed(2);
                         }
                     };
                     window.requestAnimationFrame(step);
-                };
+                }
 
+                let precisaoAnimada = false;
                 onMounted(() => {
-                    // Animar os contadores quando o componente for montado
-                    // Adiciona um pequeno delay para garantir que a seção esteja visível
-                    setTimeout(() => {
-                        const observer = new IntersectionObserver((entries) => {
+                    const precisaoEl = document.getElementById('precisao-animada');
+                    if (precisaoEl) {
+                        const observer = new window.IntersectionObserver((entries) => {
                             entries.forEach(entry => {
-                                if (entry.isIntersecting) {
-                                    animateValue(stats, 'textos', 0, targetStats.textos, 2000);
-                                    animateValue(stats, 'precisao', 0, targetStats.precisao, 2000);
-                                    observer.unobserve(entry.target);
+                                if (entry.isIntersecting && !precisaoAnimada) {
+                                    animateValue(stats, 'precisao', 0, targetStats.precisao, 600);
+                                    animateValue(stats, 'textos', 0, targetStats.textos, 600);
+                                    precisaoAnimada = true;
+                                    observer.disconnect();
                                 }
                             });
-                        }, { threshold: 0.1 });
-
-                        const statsSection = document.getElementById('diferenciais');
-                        if (statsSection) {
-                            observer.observe(statsSection);
-                        }
-                    }, 500);
+                        }, { threshold: 0.5 });
+                        observer.observe(precisaoEl);
+                    }
                 });
 
                 return {
@@ -385,7 +433,6 @@
                     toggleMenu,
                     stats,
                     toggleExcedentesInicial,
-                    toggleExcedentesPro
                 };
             }
         }).mount('#app');
@@ -402,7 +449,8 @@
         padding: 2px;
         background: linear-gradient(135deg, #facc15, #22c55e);
     }
-    .gradient-border > .btn {
+
+    .gradient-border>.btn {
         display: block;
         border-radius: 0.5rem;
         background: linear-gradient(315deg, #22c55e, #facc15);
@@ -410,11 +458,12 @@
         border: none;
         padding: 0.5rem 1.5rem;
         font-weight: 600;
-        box-shadow: 0 2px 8px rgba(34,197,94,0.08);
+        box-shadow: 0 2px 8px rgba(34, 197, 94, 0.08);
         transition: background 0.3s, box-shadow 0.3s;
     }
-    .gradient-border > .btn:hover {
+
+    .gradient-border>.btn:hover {
         background: linear-gradient(315deg, #16a34a, #fde047);
-        box-shadow: 0 4px 16px rgba(34,197,94,0.18);
+        box-shadow: 0 4px 16px rgba(34, 197, 94, 0.18);
     }
 </style>
