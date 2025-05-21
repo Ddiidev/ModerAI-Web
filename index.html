@@ -5,6 +5,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ModerAÍ - Moderação de Texto Inteligente para o Brasil</title>
+    <!-- HTML Meta Tags -->
+    <title>ModerAÍ</title>
+    <meta name="description" content="Moderação de Conteúdo Ofensivo com DNA 🧬 do Brasil">
+
+    <!-- Facebook Meta Tags -->
+    <meta property="og:url" content="https://ddiidev.github.io/ModerAI-Web/">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="ModerAÍ">
+    <meta property="og:description" content="Moderação de Conteúdo Ofensivo com DNA 🧬 do Brasil">
+    <!--
+  You can generate this image URL dynamically: https://ogcdn.net/2c2c6737-47d4-4459-9969-e711eb48394c/v1/{site_text}/{title_text}/{description_text}/{image_url}/og.png
+  Replace the variables in the brackets with your own values and use this URL in the image tag below this comment. Ensure values are URL encoded.
+  For more information, read: https://www.opengraph.xyz/blog/how-to-implement-dynamic-open-graph-images
+-->
+    <meta property="og:image"
+        content="https://ogcdn.net/2c2c6737-47d4-4459-9969-e711eb48394c/v1/moderai.dev/ModerA%C3%8D/Modera%C3%A7%C3%A3o%20de%20Conte%C3%BAdo%20Ofensivo%20com%20DNA%20%F0%9F%A7%AC%20do%20Brasil/https%3A%2F%2Fopengraph.b-cdn.net%2Fproduction%2Fimages%2F67e3dd77-4551-4a0d-96b9-5f7066cda060.png%3Ftoken%3DV9YTYzXDru8hm-1ClyRhcCVXTE70lEXxns1DUSwSKIY%26height%3D1024%26width%3D1024%26expires%3D33283849449/og.png">
+
+    <!-- Twitter Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta property="twitter:domain" content="ddiidev.github.io">
+    <meta property="twitter:url" content="https://ddiidev.github.io/ModerAI-Web/">
+    <meta name="twitter:title" content="ModerAÍ">
+    <meta name="twitter:description" content="Moderação de Conteúdo Ofensivo com DNA 🧬 do Brasil">
+    <!--
+  You can generate this image URL dynamically: https://ogcdn.net/2c2c6737-47d4-4459-9969-e711eb48394c/v1/{site_text}/{title_text}/{description_text}/{image_url}/og.png
+  Replace the variables in the brackets with your own values and use this URL in the image tag below this comment. Ensure values are URL encoded.
+  For more information, read: https://www.opengraph.xyz/blog/how-to-implement-dynamic-open-graph-images
+-->
+    <meta name="twitter:image"
+        content="https://ogcdn.net/2c2c6737-47d4-4459-9969-e711eb48394c/v1/moderai.dev/ModerA%C3%8D/Modera%C3%A7%C3%A3o%20de%20Conte%C3%BAdo%20Ofensivo%20com%20DNA%20%F0%9F%A7%AC%20do%20Brasil/https%3A%2F%2Fopengraph.b-cdn.net%2Fproduction%2Fimages%2F67e3dd77-4551-4a0d-96b9-5f7066cda060.png%3Ftoken%3DV9YTYzXDru8hm-1ClyRhcCVXTE70lEXxns1DUSwSKIY%26height%3D1024%26width%3D1024%26expires%3D33283849449/og.png">
+
+    <!-- Meta Tags Generated via https://www.opengraph.xyz -->
     <link rel="icon" type="image/x-icon" href="images/favicon.ico">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -236,7 +268,8 @@
                             <div v-if="toggleExcedentesInicial"
                                 class="mt-2 p-3 bg-green-50 rounded-md text-sm text-gray-700 text-left">
                                 <p>Custo por palavra que excede o plano: <b>R$ 0,000465</b></p>
-                                <p class="mt-1"><em>Exemplo:</em> <b>10 mil</b> palavras extras custam apenas <b>R$ 4,65</b></p>
+                                <p class="mt-1"><em>Exemplo:</em> <b>10 mil</b> palavras extras custam apenas <b>R$
+                                        4,65</b></p>
                             </div>
                         </div>
                         <div class="flex gap-3 w-full">
@@ -283,7 +316,8 @@
                                 <div v-if="toggleExcedentesInicial"
                                     class="mt-2 p-3 bg-green-50 rounded-md text-sm text-gray-700 text-left">
                                     <p>Custo por palavra que excede o plano: <b>R$ 0,000330</b></p>
-                                    <p class="mt-1"><em>Exemplo:</em> <b>10 mil</b> palavras extras custam apenas <b>R$ 3,30</b></p>
+                                    <p class="mt-1"><em>Exemplo:</em> <b>10 mil</b> palavras extras custam apenas <b>R$
+                                            3,30</b></p>
                                 </div>
                             </div>
                             <a href="#"
@@ -366,8 +400,8 @@
                 <div class="mt-8 text-center text-xs text-gray-400">&copy; 2025 ModerAÍ. Todos os direitos reservados.
                 </div>
             </div>
-        </footer>
     </div> <!-- Close #app -->
+
 
     <script>
         const { createApp, ref, onMounted } = Vue;
